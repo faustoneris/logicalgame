@@ -1,6 +1,5 @@
 package br.com.weconcept.business.exceptions;
 
-
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,14 +20,13 @@ public class RestExceptionHandler {
             ResourceNotFoundException ex, HttpServletRequest request) {
 
         return new ResponseEntity<>(
-            ErrorResponse.ofError(
-                Instant.now(),
-                HttpStatus.NOT_FOUND.value(),
-                "RESOURCE_NOT_FOUND",
-                ex.getMessage(),
-                request.getRequestURI()),
-                HttpStatus.NOT_FOUND
-            );
+                ErrorResponse.ofError(
+                        Instant.now(),
+                        HttpStatus.NOT_FOUND.value(),
+                        "RESOURCE_NOT_FOUND",
+                        ex.getMessage(),
+                        request.getRequestURI()),
+                HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(ValidationException.class)
@@ -36,14 +34,13 @@ public class RestExceptionHandler {
             ValidationException ex, HttpServletRequest request) {
 
         return new ResponseEntity<>(
-            ErrorResponse.ofError(
-                Instant.now(),
-                HttpStatus.BAD_REQUEST.value(),
-                "BUSINESS_ERROR",
-                ex.getMessage(),
-                request.getRequestURI()),
-                HttpStatus.BAD_REQUEST
-            );
+                ErrorResponse.ofError(
+                        Instant.now(),
+                        HttpStatus.BAD_REQUEST.value(),
+                        "BUSINESS_ERROR",
+                        ex.getMessage(),
+                        request.getRequestURI()),
+                HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -56,14 +53,13 @@ public class RestExceptionHandler {
                 .collect(Collectors.toList());
 
         return new ResponseEntity<>(
-            ErrorResponse.ofError(
-                Instant.now(),
-                HttpStatus.BAD_REQUEST.value(),
-                "VALIDATION_ERROR",
-                "Preencha as informações corretamente.",
-                request.getRequestURI()),
-                HttpStatus.BAD_REQUEST
-            );
+                ErrorResponse.ofError(
+                        Instant.now(),
+                        HttpStatus.BAD_REQUEST.value(),
+                        "VALIDATION_ERROR",
+                        "Preencha as informações corretamente.",
+                        request.getRequestURI()),
+                HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
@@ -71,21 +67,19 @@ public class RestExceptionHandler {
             Exception ex, HttpServletRequest request) {
 
         return new ResponseEntity<>(
-            ErrorResponse.ofError(
-                Instant.now(),
-                HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                "INTERNAL_SERVER_ERROR",
-                "Ocorreu um erro no servidor.",
-                request.getRequestURI()),
-                HttpStatus.INTERNAL_SERVER_ERROR
-            );
+                ErrorResponse.ofError(
+                        Instant.now(),
+                        HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                        "INTERNAL_SERVER_ERROR",
+                        "Ocorreu um erro no servidor.",
+                        request.getRequestURI()),
+                HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     private ErrorResponse.ValidationError mapToValidationError(FieldError fieldError) {
         return new ErrorResponse.ValidationError(
                 fieldError.getField(),
                 fieldError.getDefaultMessage(),
-                fieldError.getRejectedValue() != null ? fieldError.getRejectedValue().toString() : null
-        );
+                fieldError.getRejectedValue() != null ? fieldError.getRejectedValue().toString() : null);
     }
 }

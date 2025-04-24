@@ -5,6 +5,7 @@ import br.com.weconcept.business.exceptions.ResourceNotFoundException;
 import br.com.weconcept.business.player.models.Player;
 import br.com.weconcept.business.player.models.PlayerModel;
 import br.com.weconcept.business.player.repositories.PlayerRepository;
+import br.com.weconcept.utils.UUIDValidator;
 
 import org.springframework.stereotype.Service;
 
@@ -35,12 +36,12 @@ public class PlayerService {
         }
     }
 
-    public PlayerModel fetchPlayerById(UUID id) {
-        if (id == null) {
-            throw new ResourceNotFoundException("PlayerId inválido.");
+    public PlayerModel fetchPlayerById(String playerId) {
+        if (playerId == null || !UUIDValidator.isValidUUID(playerId)) {
+            throw new ValidationException("PlayerId inválido.");
         }
-        Player player = playerRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Jogador(a) não encontrado(a) com o id: " + id));;
+        Player player = playerRepository.findById(UUID.fromString(playerId))
+            .orElseThrow(() -> new ResourceNotFoundException("Jogador(a) não encontrado(a) com o id: " + playerId));;
         return PlayerModel.of(player);
     }
 
@@ -55,14 +56,14 @@ public class PlayerService {
         return PlayerModel.of(player);
     }
 
-    public Player updatePlayer(UUID id, Player player) {
-        return playerRepository.findById(id)
+    public Player updatePlayer(String playerId, Player player) {
+        return playerRepository.findById(UUID.fromString(playerId))
             .map(p -> {
                 p.setAge(player.getAge());
                 p.setName(player.getName());
                 p.setBirthdayDate(player.getBirthdayDate());
                 return playerRepository.save(p);
-        }).orElseThrow(() -> new ResourceNotFoundException("Não foi possivel localizar o jogador por este ID: " + id));
+        }).orElseThrow(() -> new ResourceNotFoundException("Não foi possivel localizar o jogador por este ID: " + playerId));
     }
 
     public void deletePlayer(UUID id) {
