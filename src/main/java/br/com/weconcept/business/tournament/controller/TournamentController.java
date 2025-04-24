@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
+
 
 @RestController
 @RequestMapping("tournaments")
@@ -22,7 +22,7 @@ public class TournamentController {
         this.tournamentService = tournamentService;
     }
 
-    @GetMapping("/{tournamentId}/players")
+    @GetMapping("{tournamentId}/players")
     public ResponseEntity<Set<Player>> listPlayers(@PathVariable String tournamentId) {
         return ResponseEntity.ok(tournamentService.listPlayers(tournamentId));
     }
@@ -44,9 +44,9 @@ public class TournamentController {
             .body(this.tournamentService.createTournament(tournament));
     }
 
-    @PutMapping("/{id}/finish")
-    public ResponseEntity<Tournament> finishTournament(@PathVariable String id) {
-        return ResponseEntity.ok(tournamentService.finishTournament(id));
+    @PutMapping("/{tournamentId}/finish")
+    public ResponseEntity<Tournament> finishTournament(@PathVariable String tournamentId) {
+        return ResponseEntity.ok(tournamentService.finishTournament(tournamentId));
     }
 
     @PutMapping("{tournamentId}/players")
