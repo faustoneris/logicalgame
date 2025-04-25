@@ -44,7 +44,6 @@ class PlayerServiceTest {
         validPlayer.setId(UUID.fromString(validPlayerId));
         validPlayer.setName("John Doe");
         validPlayer.setAge(20);
-        validPlayer.setBirthdayDate(LocalDateTime.now());
     }
 
     @Test
@@ -197,7 +196,6 @@ class PlayerServiceTest {
         Player updatedData = new Player();
         updatedData.setName("Updated Name");
         updatedData.setAge(25);
-        updatedData.setBirthdayDate(LocalDateTime.now());
 
         when(playerRepository.findById(UUID.fromString(validPlayerId))).thenReturn(Optional.of(validPlayer));
         when(playerRepository.save(validPlayer)).thenReturn(validPlayer);
@@ -209,7 +207,6 @@ class PlayerServiceTest {
         assertNotNull(result);
         assertEquals(updatedData.getName(), validPlayer.getName());
         assertEquals(updatedData.getAge(), validPlayer.getAge());
-        assertEquals(updatedData.getBirthdayDate(), validPlayer.getBirthdayDate());
         verify(playerRepository, times(1)).findById(UUID.fromString(validPlayerId));
         verify(playerRepository, times(1)).save(validPlayer);
     }

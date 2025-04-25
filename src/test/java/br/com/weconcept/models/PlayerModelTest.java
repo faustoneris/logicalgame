@@ -23,7 +23,6 @@ class PlayerModelTest {
         player.setId(id);
         player.setName(name);
         player.setAge(age);
-        player.setBirthdayDate(birthday);
 
         PlayerModel model = PlayerModel.of(player);
 

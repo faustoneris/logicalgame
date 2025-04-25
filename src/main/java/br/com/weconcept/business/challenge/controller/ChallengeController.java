@@ -14,7 +14,7 @@ import br.com.weconcept.business.challenge.services.ChallengeService;
 
 
 @RestController
-@RequestMapping("challenge")
+@RequestMapping("challenges")
 public class ChallengeController {
 
     private final ChallengeService challengeService;

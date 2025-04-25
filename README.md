@@ -63,11 +63,12 @@ target/site/jacoco/index.html
 - `DELETE /players/{playerId}`
 
 ### Tournaments
+- `GET /tournaments/{tournamentId}/players`
 - `POST /tournaments`
+- `POST /tournaments/{tournamentId}/finish`
+- `POST /tournaments/{tournamentId}/upload`
 - `PUT /tournaments/{tournamentId}/players/{playerId}`
 - `DELETE /tournaments/{tournamentId}/players/{playerId}`
-- `GET /tournaments/{tournamentId}/players`
-- `POST /tournaments/{tournamentId}/finish`
 
 ### Challenges
 - `POST /challenges/fibonacci?n=10`

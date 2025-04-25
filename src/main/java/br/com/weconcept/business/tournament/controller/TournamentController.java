@@ -54,7 +54,7 @@ public class TournamentController {
         }
         try {
             var players = this.tournamentService.extractPlayersFromExcel(file, tournamentId);
-            return ResponseEntity.ok("Arquivo processado com sucesso. " + players.size());
+            return ResponseEntity.ok("Arquivo processado com sucesso. Jogadores inseridos: " + players.size());
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("Falha ao processar o arquivo: " + e.getMessage());

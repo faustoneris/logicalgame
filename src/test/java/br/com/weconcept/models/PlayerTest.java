@@ -22,12 +22,10 @@ class PlayerTest {
         player.setId(id);
         player.setName(name);
         player.setAge(age);
-        player.setBirthdayDate(birthday);
 
         assertEquals(id, player.getId());
         assertEquals(name, player.getName());
         assertEquals(age, player.getAge());
-        assertEquals(birthday, player.getBirthdayDate());
     }
 
     @Test
