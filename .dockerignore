@@ -1,0 +1,33 @@
+# Permitir apenas o necessário
+!src/
+!pom.xml
+!mvnw*
+!.mvn/
+!Dockerfile
+!docker-compose.yml
+
+# Ignorar arquivos específicos
+**/.git
+**/.gitignore
+**/.project
+**/.classpath
+**/.settings/
+**/.idea/
+**/*.iml
+**/target/
+**/bin/
+**/logs/
+**/*.log
+**/*.bak
+**/*.swp
+**/*~
+**/node_modules/
+**/dist/
+**/build/
+**/.DS_Store
+**/docker-compose.*.yml
+**/README.md
+**/LICENSE
+**/*.md
+**/test/
+**/tmp/
