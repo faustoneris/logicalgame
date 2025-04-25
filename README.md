@@ -56,15 +56,15 @@ target/site/jacoco/index.html
 
 ### Players
 - `POST /players`
-- `GET /players/{id}`
+- `GET /players/{playerId}`
 - `GET /players`
-- `GET /players?name=...`
-- `PUT /players/{id}`
-- `DELETE /players/{id}`
+- `GET /players/name/{name}`
+- `PUT /players/{playerId}`
+- `DELETE /players/{playerId}`
 
 ### Tournaments
 - `POST /tournaments`
-- `POST /tournaments/{tournamentId}/players?playerId=...`
+- `PUT /tournaments/{tournamentId}/players/{playerId}`
 - `DELETE /tournaments/{tournamentId}/players/{playerId}`
 - `GET /tournaments/{tournamentId}/players`
 - `POST /tournaments/{tournamentId}/finish`

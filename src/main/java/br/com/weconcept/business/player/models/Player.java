@@ -16,8 +16,6 @@ public class Player {
 
     private int age;
 
-    private LocalDateTime birthdayDate;
-
     public UUID getId() {
         return id;
     }
@@ -28,19 +26,9 @@ public class Player {
     public int getAge() {
         return age;
     }
-
-    public LocalDateTime getBirthdayDate() {
-        return birthdayDate;
-    }
-
     public void setAge(int age) {
         this.age = age;
     }
-
-    public void setBirthdayDate(LocalDateTime birthdayDate) {
-        this.birthdayDate = birthdayDate;
-    }
-
     public void setName(String name) {
         this.name = name;
     }

@@ -21,7 +21,6 @@ public class PlayerModel {
         this.id = player.getId();
         this.name = player.getName();
         this.age = player.getAge();
-        this.birthdayDate = player.getBirthdayDate();
     }
 
     public static PlayerModel of(Player player) {

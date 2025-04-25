@@ -72,7 +72,7 @@ public class ChallengeService {
     }
 
     public ChallengeResult registerScore(String playerId, String tournamentId, ChallengeType type) {
-        if (playerId == null || tournamentId == null || !UUIDValidator.isValidUUID(playerId, tournamentId)) {
+        if (playerId == null || tournamentId == null || !UUIDValidator.isValidUUID(tournamentId) || !UUIDValidator.isValidUUID(playerId)) {
             throw new ValidationException("PlayerId e/ou TournamentId inválidos.");
         }
         var player = playerRepository.findById(UUID.fromString(playerId))

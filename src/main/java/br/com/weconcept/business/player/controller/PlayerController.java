@@ -8,15 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.UUID;
-
-
 
 @RestController
-@RequestMapping("/players")
+@RequestMapping("players")
 public class PlayerController {
 
     private final PlayerService playerService;
@@ -30,13 +26,13 @@ public class PlayerController {
         return ResponseEntity.ok(this.playerService.fetchAllPlayers());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<PlayerModel> fetchPlayerById(@PathVariable String id) {
-        return ResponseEntity.ok(this.playerService.fetchPlayerById(id));
+    @GetMapping("/{playerId}")
+    public ResponseEntity<PlayerModel> fetchPlayerById(@PathVariable String playerId) {
+        return ResponseEntity.ok(this.playerService.fetchPlayerById(playerId));
     }
 
-    @GetMapping("name")
-    public ResponseEntity<PlayerModel> fetchPlayersByName(@RequestParam String name) {
+    @GetMapping("name/{name}")
+    public ResponseEntity<PlayerModel> fetchPlayersByName(@PathVariable String name) {
         return ResponseEntity.ok(playerService.fetchPlayerByName(name));
     }
 
@@ -52,9 +48,9 @@ public class PlayerController {
         return ResponseEntity.ok(this.playerService.updatePlayer(playerId, player));
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<String> deletePlayerById(@PathVariable UUID id) {
-        this.playerService.deletePlayer(id);
+    @DeleteMapping("{playerId}")
+    public ResponseEntity<String> deletePlayerById(@PathVariable String playerId) {
+        this.playerService.deletePlayer(playerId);
         return ResponseEntity.noContent().build();
     }
 }

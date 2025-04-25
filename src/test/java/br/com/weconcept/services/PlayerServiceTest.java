@@ -231,12 +231,12 @@ class PlayerServiceTest {
     @Test
     void deletePlayer_ShouldCallRepositoryDelete() {
         // Arrange
-        UUID playerUuid = UUID.fromString(validPlayerId);
+        String playerUuid = validPlayerId;
 
         // Act
         playerService.deletePlayer(playerUuid);
 
         // Assert
-        verify(playerRepository, times(1)).deleteById(playerUuid);
+        verify(playerRepository, times(1)).deleteById(UUID.fromString(playerUuid));
     }
 }

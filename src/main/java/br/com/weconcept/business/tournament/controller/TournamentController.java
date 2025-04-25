@@ -8,8 +8,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
+
+import org.springframework.web.multipart.MultipartFile;
+
 
 @RestController
 @RequestMapping("tournaments")
@@ -43,13 +47,28 @@ public class TournamentController {
             .body(this.tournamentService.createTournament(tournament));
     }
 
+    @PostMapping("{tournamentId}/upload")
+    public ResponseEntity<String> extractPlayersFromExcel(@PathVariable String tournamentId, @RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body("Por favor, envie um arquivo Excel.");
+        }
+        try {
+            var players = this.tournamentService.extractPlayersFromExcel(file, tournamentId);
+            return ResponseEntity.ok("Arquivo processado com sucesso. " + players.size());
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Falha ao processar o arquivo: " + e.getMessage());
+        }
+    }
+
+
     @PutMapping("/{tournamentId}/finish")
     public ResponseEntity<Tournament> finishTournament(@PathVariable String tournamentId) {
         return ResponseEntity.ok(tournamentService.finishTournament(tournamentId));
     }
 
-    @PutMapping("{tournamentId}/players")
-    public ResponseEntity<Tournament> addPlayer(@PathVariable String tournamentId, @RequestParam String playerId) {
+    @PutMapping("{tournamentId}/players/{playerId}")
+    public ResponseEntity<Tournament> addPlayer(@PathVariable String tournamentId, @PathVariable String playerId) {
         return ResponseEntity
             .status(HttpStatus.OK)
             .body(this.tournamentService.addPlayer(tournamentId, playerId));
