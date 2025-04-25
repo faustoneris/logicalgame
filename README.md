@@ -2,7 +2,7 @@
 
 API REST para gerenciamento de torneios de lógica, desenvolvida com Java 17 e Spring Boot.
 
-## 📦 Funcionalidades
+## 📆 Funcionalidades
 
 - Cadastro e gerenciamento de jogadores
 - Criação e finalização de torneios
@@ -38,7 +38,7 @@ API REST para gerenciamento de torneios de lógica, desenvolvida com Java 17 e S
    - H2 Console: `http://localhost:8080/h2-console`
      - JDBC URL: `jdbc:h2:mem:testdb`
 
-## 🧪 Testes
+## 💪 Testes
 
 Para rodar os testes e gerar relatório de cobertura:
 
@@ -79,3 +79,27 @@ target/site/jacoco/index.html
 ### Rankings
 - `GET /rankings/global`
 - `GET /rankings/tournament/{tournamentId}`
+
+## 🐳 Executando com Docker Compose
+
+Para rodar a aplicação usando Docker e Docker Compose, siga os passos abaixo:
+
+1. Certifique-se de ter o Docker e o Docker Compose instalados.
+
+2. Verifique se existe um arquivo `docker-compose.yml` na raiz do projeto.
+
+3. No terminal, execute o comando:
+
+   ```bash
+   docker-compose up
+   ```
+
+4. Acesse a aplicação em:
+   - API: `http://localhost:8080`
+   - H2 Console: `http://localhost:8080/h2-console`
+     - JDBC URL: `jdbc:h2:mem:testdb`
+
+> 🔄 Para parar os containers:
+```bash
+docker-compose down
+```
