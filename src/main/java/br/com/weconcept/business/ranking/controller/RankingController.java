@@ -23,12 +23,12 @@ public class RankingController {
     }
 
     @GetMapping("global")
-    public ResponseEntity<Map<Player, Integer>> globalRanking() {
+    public ResponseEntity<Map<String, Integer>> globalRanking() {
         return ResponseEntity.ok(rankingService.getGlobalRanking());
     }
 
     @GetMapping("tournament/{tournamentId}")
-    public ResponseEntity<Map<Player, Integer>> tournamentRanking(@PathVariable UUID tournamentId) {
+    public ResponseEntity<Map<String, Integer>> tournamentRanking(@PathVariable UUID tournamentId) {
         return ResponseEntity.ok(rankingService.getTournamentRanking(tournamentId));
     }
 }

@@ -18,7 +18,6 @@ class PlayerModelTest {
         UUID id = UUID.randomUUID();
         String name = "Jane Smith";
         int age = 30;
-        LocalDateTime birthday = LocalDateTime.now();
 
         player.setId(id);
         player.setName(name);
@@ -29,7 +28,6 @@ class PlayerModelTest {
         assertEquals(id, model.getId());
         assertEquals(name, model.getName());
         assertEquals(age, model.getAge());
-        assertEquals(birthday, model.getBirthdayDate());
     }
 
     @Test

@@ -49,6 +49,13 @@ public class ChallengeResult {
        return player;
    }
 
+   public String getPlayerName() {
+    if (player != null) {
+        return player.getName();
+    }
+    return "Undefined Name";
+    }
+
    public int getScore() {
        return score;
    }

@@ -18,16 +18,32 @@ public class RankingService {
         this.resultRepository = resultRepository;
     }
 
-    public Map<Player, Integer> getGlobalRanking() {
-        return resultRepository.findAll().stream()
-                .collect(Collectors.groupingBy(ChallengeResult::getPlayer,
+    public Map<String, Integer> getGlobalRanking() {
+        Map<String, Integer> resultGlobalRanking = resultRepository.findAll().stream()
+                .collect(Collectors.groupingBy(
+                        ChallengeResult::getPlayerName,
                         Collectors.summingInt(ChallengeResult::getScore)));
+        return resultGlobalRanking.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new));
     }
 
-    public Map<Player, Integer> getTournamentRanking(UUID tournamentId) {
-        return resultRepository.findAll().stream()
+    public Map<String, Integer> getTournamentRanking(UUID tournamentId) {
+        Map<String, Integer> resultTournamentRanking = resultRepository.findAll().stream()
                 .filter(r -> r.getTournament().getId().equals(tournamentId))
-                .collect(Collectors.groupingBy(ChallengeResult::getPlayer,
+                .collect(Collectors.groupingBy(
+                        ChallengeResult::getPlayerName,
                         Collectors.summingInt(ChallengeResult::getScore)));
+        return resultTournamentRanking.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new));
     }
 }

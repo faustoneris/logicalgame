@@ -54,18 +54,18 @@ class RankingServiceTest {
 
         when(resultRepository.findAll()).thenReturn(results);
 
-        Map<Player, Integer> ranking = rankingService.getGlobalRanking();
+        Map<String, Integer> ranking = rankingService.getGlobalRanking();
 
         assertEquals(2, ranking.size());
-        assertEquals(15, ranking.get(player1));
-        assertEquals(7, ranking.get(player2));
+        assertEquals(15, ranking.get(player1.getName()));
+        assertEquals(7, ranking.get(player2.getName()));
     }
 
     @Test
     void getGlobalRanking_WithNoResults_ShouldReturnEmptyMap() {
         when(resultRepository.findAll()).thenReturn(Collections.emptyList());
 
-        Map<Player, Integer> ranking = rankingService.getGlobalRanking();
+        Map<String, Integer> ranking = rankingService.getGlobalRanking();
 
         assertTrue(ranking.isEmpty());
     }
@@ -86,11 +86,11 @@ class RankingServiceTest {
 
         when(resultRepository.findAll()).thenReturn(results);
 
-        Map<Player, Integer> ranking = rankingService.getTournamentRanking(tournamentId);
+        Map<String, Integer> ranking = rankingService.getTournamentRanking(tournamentId);
 
         assertEquals(1, ranking.size());
-        assertEquals(15, ranking.get(player1));
-        assertNull(ranking.get(player2));
+        assertEquals(15, ranking.get(player1.getName()));
+        assertNull(ranking.get(player2.getName()));
     }
 
     private ChallengeResult createResult(Player player, int score) {
