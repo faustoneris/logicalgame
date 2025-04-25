@@ -74,7 +74,7 @@ public class RestExceptionHandler {
                                 HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        private ErrorResponse.ValidationError mapToValidationError(FieldError fieldError) {
+        public ErrorResponse.ValidationError mapToValidationError(FieldError fieldError) {
                 return new ErrorResponse.ValidationError(
                                 fieldError.getField(),
                                 fieldError.getDefaultMessage(),

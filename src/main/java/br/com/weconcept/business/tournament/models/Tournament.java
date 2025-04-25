@@ -43,4 +43,20 @@ public class Tournament {
    public void setFinished(boolean finished) {
        this.finished = finished;
    }
+
+   public void setId(UUID id) {
+       this.id = id;
+   }
+
+   public void setName(String name) {
+       this.name = name;
+   }
+   public void setPlayers(Set<Player> players) {
+        this.players = players;
+   }
+
+   public void setDate(LocalDate date) {
+       this.date = date;
+   }
+
 }

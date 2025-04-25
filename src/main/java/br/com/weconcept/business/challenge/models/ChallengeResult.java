@@ -56,4 +56,22 @@ public class ChallengeResult {
        return tournament;
    }
 
+   public void setChallengeType(ChallengeType challengeType) {
+       this.challengeType = challengeType;
+   }
+   public void setId(UUID id) {
+       this.id = id;
+   }
+
+   public void setPlayer(Player player) {
+       this.player = player;
+   }
+   public void setScore(int score) {
+       this.score = score;
+   }
+   public void setTournament(Tournament tournament) {
+       this.tournament = tournament;
+   }
+
+
 }
