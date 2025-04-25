@@ -24,8 +24,8 @@ public class ChallengeService {
     private final TournamentRepository tournamentRepository;
 
     private final Map<ChallengeType, Integer> challengeWeights = Map.of(
-            ChallengeType.FIBONACCI, 10,
             ChallengeType.PALINDROME, 5,
+            ChallengeType.FIBONACCI, 10,
             ChallengeType.SORTING, 7);
 
     public ChallengeService(
