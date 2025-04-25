@@ -72,7 +72,7 @@ target/site/jacoco/index.html
 
 ### Challenges
 - `POST /challenges/fibonacci?n=10`
-- `POST /challenges/palindrome?input=arara`
+- `POST /challenges/palindrome?word=arara`
 - `POST /challenges/sort`
 - `POST /challenges/score`
 
