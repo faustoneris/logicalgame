@@ -1,6 +1,5 @@
 package br.com.weconcept.business.challenge.controller;
 
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.weconcept.business.challenge.models.ChallengeResult;
 import br.com.weconcept.business.challenge.models.ChallengeType;
 import br.com.weconcept.business.challenge.services.ChallengeService;
-
 
 @RestController
 @RequestMapping("challenges")
