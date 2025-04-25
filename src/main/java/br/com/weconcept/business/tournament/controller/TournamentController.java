@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Set;
 
-
 @RestController
 @RequestMapping("tournaments")
 public class TournamentController {
@@ -23,8 +22,8 @@ public class TournamentController {
     }
 
     @GetMapping("{tournamentId}/players")
-    public ResponseEntity<Set<Player>> listPlayers(@PathVariable String tournamentId) {
-        return ResponseEntity.ok(tournamentService.listPlayers(tournamentId));
+    public ResponseEntity<Set<Player>> listTournamentsPlayers(@PathVariable String tournamentId) {
+        return ResponseEntity.ok(tournamentService.listTournamentsPlayers(tournamentId));
     }
 
     @GetMapping("{tournamentId}")

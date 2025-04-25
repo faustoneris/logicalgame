@@ -63,7 +63,7 @@ public class TournamentService {
         return tournamentRepository.save(tournament);
     }
 
-    public Set<Player> listPlayers(String tournamentId) {
+    public Set<Player> listTournamentsPlayers(String tournamentId) {
         Tournament tournament = this.fetchTournamentById(tournamentId);
         return tournament.getPlayers();
     }
