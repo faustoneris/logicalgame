@@ -37,35 +37,41 @@ public class ChallengeService {
         this.tournamentRepository = tournamentRepository;
     }
 
-    public int executeFibonacci(int n) {
-        if (n <= 1)
-            return n;
-        int a = 0, b = 1, result = 1;
-        for (int i = 2; i <= n; i++) {
-            result = a + b;
-            a = b;
-            b = result;
+    public int calculateFibonacci(int indice) {
+        if (indice <= 1) {
+            return indice;
         }
-        return result;
+
+        int numberBefore = 0, actualNumber = 1;
+
+        for (int i = 2; i <= indice; i++) {
+            actualNumber = numberBefore + actualNumber;
+            numberBefore = actualNumber - numberBefore;
+        }
+
+        return actualNumber;
     }
 
-    public boolean isPalindrome(String input) {
-        String cleaned = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-
-        return new StringBuilder(cleaned)
-                .reverse()
-                .toString()
-                .equals(cleaned);
+    public boolean isPalindrome(String texto) {
+        String cleanText = texto.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        String reverseText = new StringBuilder(cleanText).reverse().toString();
+        return cleanText.equals(reverseText);
     }
 
     public int[] customSort(int[] input) {
+        boolean swapped;
         for (int i = 0; i < input.length - 1; i++) {
+            swapped = false;
             for (int j = 0; j < input.length - i - 1; j++) {
                 if (input[j] > input[j + 1]) {
                     int temp = input[j];
                     input[j] = input[j + 1];
                     input[j + 1] = temp;
+                    swapped = true;
                 }
+            }
+            if (!swapped) {
+                break;
             }
         }
         return input;

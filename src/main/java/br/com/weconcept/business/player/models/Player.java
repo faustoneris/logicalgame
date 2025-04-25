@@ -3,7 +3,6 @@ package br.com.weconcept.business.player.models;
 import jakarta.persistence.*;
 
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity

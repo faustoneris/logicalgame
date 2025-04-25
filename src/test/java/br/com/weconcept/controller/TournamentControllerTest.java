@@ -98,7 +98,7 @@ class TournamentControllerTest {
 
         ResponseEntity<Tournament> response = tournamentController.addPlayer(tournamentId, playerId);
 
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertEquals(tournament, response.getBody());
     }
 

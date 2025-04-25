@@ -22,8 +22,8 @@ public class ChallengeController {
     }
 
     @PostMapping("fibonacci")
-    public ResponseEntity<Integer> fibonacci(@RequestParam int number) {
-        return ResponseEntity.ok(challengeService.executeFibonacci(number));
+    public ResponseEntity<Integer> calculateFibonacci(@RequestParam int number) {
+        return ResponseEntity.ok(challengeService.calculateFibonacci(number));
     }
 
     @PostMapping("palindrome")
