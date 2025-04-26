@@ -183,10 +183,10 @@ class PlayerServiceTest {
         when(playerRepository.findByName(nonExistentName)).thenReturn(null);
 
         // Act & Assert
-        ValidationException exception = assertThrows(ValidationException.class,
+        ResourceNotFoundException exception = assertThrows(ResourceNotFoundException.class,
             () -> playerService.fetchPlayerByName(nonExistentName));
 
-        assertEquals("Não foi possível encontrar um jogador com esse nome: " + nonExistentName, exception.getMessage());
+        assertEquals("Não foi possível encontrar um(a) jogador(a) com esse nome: " + nonExistentName, exception.getMessage());
         verify(playerRepository, times(1)).findByName(nonExistentName);
     }
 

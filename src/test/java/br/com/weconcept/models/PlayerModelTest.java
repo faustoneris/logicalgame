@@ -36,6 +36,5 @@ class PlayerModelTest {
         assertNull(model.getId());
         assertNull(model.getName());
         assertEquals(0, model.getAge());
-        assertNull(model.getBirthdayDate());
     }
 }

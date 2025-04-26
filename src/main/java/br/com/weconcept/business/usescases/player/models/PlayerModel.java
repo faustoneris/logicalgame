@@ -29,10 +29,6 @@ public class PlayerModel {
         return age;
     }
 
-    public LocalDateTime getBirthdayDate() {
-        return birthdayDate;
-    }
-
     public UUID getId() {
         return id;
     }

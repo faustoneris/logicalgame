@@ -92,6 +92,14 @@ public class ChallengeService {
         var tournament = tournamentRepository.findById(UUID.fromString(tournamentId))
                 .orElseThrow(() -> new ResourceNotFoundException("Não foi possível encontrar o torneio."));
 
+        boolean hasPlayerInTournament = tournament.getPlayers()
+            .stream()
+            .anyMatch(p -> Objects.equals(p.getId(), player.getId()));
+
+        if (!hasPlayerInTournament) {
+            throw new ValidationException("Jogador(a) não participa do torneio.");
+        }
+
         int score = challengeWeights.getOrDefault(type, 0);
         return challengeResultRepository.save(ChallengeResult.ofResult(player, tournament, type, score));
     }
