@@ -2,11 +2,11 @@ package br.com.weconcept.services;
 
 import br.com.weconcept.business.exceptions.ResourceNotFoundException;
 import br.com.weconcept.business.exceptions.ValidationException;
-import br.com.weconcept.business.player.models.Player;
-import br.com.weconcept.business.player.repositories.PlayerRepository;
-import br.com.weconcept.business.tournament.models.Tournament;
-import br.com.weconcept.business.tournament.repositories.TournamentRepository;
-import br.com.weconcept.business.tournament.services.TournamentService;
+import br.com.weconcept.business.usescases.player.models.Player;
+import br.com.weconcept.business.usescases.player.repositories.PlayerRepository;
+import br.com.weconcept.business.usescases.tournament.models.Tournament;
+import br.com.weconcept.business.usescases.tournament.repositories.TournamentRepository;
+import br.com.weconcept.business.usescases.tournament.services.TournamentService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

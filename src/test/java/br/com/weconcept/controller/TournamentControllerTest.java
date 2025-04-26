@@ -1,9 +1,10 @@
 package br.com.weconcept.controller;
 
-import br.com.weconcept.business.player.models.Player;
-import br.com.weconcept.business.tournament.controller.TournamentController;
-import br.com.weconcept.business.tournament.models.Tournament;
-import br.com.weconcept.business.tournament.services.TournamentService;
+import br.com.weconcept.business.usescases.player.models.Player;
+import br.com.weconcept.business.usescases.tournament.controller.TournamentController;
+import br.com.weconcept.business.usescases.tournament.models.Tournament;
+import br.com.weconcept.business.usescases.tournament.services.TournamentService;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

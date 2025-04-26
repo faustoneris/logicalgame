@@ -1,11 +1,11 @@
 package br.com.weconcept.repositories;
 
-import br.com.weconcept.business.tournament.models.Tournament;
-import br.com.weconcept.business.tournament.repositories.TournamentRepository;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+import br.com.weconcept.business.usescases.tournament.models.Tournament;
+import br.com.weconcept.business.usescases.tournament.repositories.TournamentRepository;
 
 import java.util.UUID;
 

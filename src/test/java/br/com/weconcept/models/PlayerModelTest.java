@@ -2,8 +2,8 @@ package br.com.weconcept.models;
 
 import org.junit.jupiter.api.Test;
 
-import br.com.weconcept.business.player.models.Player;
-import br.com.weconcept.business.player.models.PlayerModel;
+import br.com.weconcept.business.usescases.player.models.Player;
+import br.com.weconcept.business.usescases.player.models.PlayerModel;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

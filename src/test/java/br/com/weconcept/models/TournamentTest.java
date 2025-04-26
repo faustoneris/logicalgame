@@ -1,7 +1,7 @@
 package br.com.weconcept.models;
 
-import br.com.weconcept.business.player.models.Player;
-import br.com.weconcept.business.tournament.models.Tournament;
+import br.com.weconcept.business.usescases.player.models.Player;
+import br.com.weconcept.business.usescases.tournament.models.Tournament;
 
 import org.junit.jupiter.api.Test;
 

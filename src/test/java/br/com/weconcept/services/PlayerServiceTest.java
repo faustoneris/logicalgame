@@ -2,10 +2,10 @@ package br.com.weconcept.services;
 
 import br.com.weconcept.business.exceptions.ResourceNotFoundException;
 import br.com.weconcept.business.exceptions.ValidationException;
-import br.com.weconcept.business.player.models.Player;
-import br.com.weconcept.business.player.models.PlayerModel;
-import br.com.weconcept.business.player.repositories.PlayerRepository;
-import br.com.weconcept.business.player.services.PlayerService;
+import br.com.weconcept.business.usescases.player.models.Player;
+import br.com.weconcept.business.usescases.player.models.PlayerModel;
+import br.com.weconcept.business.usescases.player.repositories.PlayerRepository;
+import br.com.weconcept.business.usescases.player.services.PlayerService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,10 +1,10 @@
 package br.com.weconcept.services;
 
-import br.com.weconcept.business.challenge.models.ChallengeResult;
-import br.com.weconcept.business.challenge.repositories.ChallengeRepository;
-import br.com.weconcept.business.player.models.Player;
-import br.com.weconcept.business.ranking.services.RankingService;
-import br.com.weconcept.business.tournament.models.Tournament;
+import br.com.weconcept.business.usescases.challenge.models.ChallengeResult;
+import br.com.weconcept.business.usescases.challenge.repositories.ChallengeRepository;
+import br.com.weconcept.business.usescases.player.models.Player;
+import br.com.weconcept.business.usescases.ranking.services.RankingService;
+import br.com.weconcept.business.usescases.tournament.models.Tournament;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

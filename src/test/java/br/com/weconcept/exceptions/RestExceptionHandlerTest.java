@@ -8,9 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 
+import br.com.weconcept.business.advices.RestExceptionHandler;
 import br.com.weconcept.business.exceptions.ErrorResponse;
 import br.com.weconcept.business.exceptions.ResourceNotFoundException;
-import br.com.weconcept.business.exceptions.RestExceptionHandler;
 import br.com.weconcept.business.exceptions.ValidationException;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -51,7 +51,7 @@ class RestExceptionHandlerTest {
             exceptionHandler.handleBusinessException(ex, request);
 
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        assertEquals("BUSINESS_ERROR", response.getBody().getError());
+        assertEquals("VALIDATION_ERROR", response.getBody().getError());
         assertEquals("Invalid input", response.getBody().getMessage());
     }
 
@@ -65,7 +65,7 @@ class RestExceptionHandlerTest {
             exceptionHandler.handleGenericException(ex, request);
 
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
-        assertEquals("INTERNAL_SERVER_ERROR", response.getBody().getError());
+        assertEquals("Unexpected error", response.getBody().getError());
         assertEquals("Ocorreu um erro no servidor.", response.getBody().getMessage());
     }
 
