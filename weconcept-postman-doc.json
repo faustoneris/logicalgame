@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "201aaf3d-6ccd-4970-9023-c316f1ca215e",
+		"name": "WeConcept",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17049986"
+	},
+	"item": [
+		{
+			"name": "Players",
+			"item": [
+				{
+					"name": "Find Player By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/players/759761ec-d974-449e-b567-cfd5846477ee"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/players"
+					},
+					"response": []
+				},
+				{
+					"name": "Find Player By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/players/name/Fausto Neris Silva"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Player",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fausto Neris Silva\", \n    \"age\": 16\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/players"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Player",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fausto Neris Silva\",\n    \"age\": 16,\n    \"birthdayDate\": \"2003-02-21T12:59:11.332\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/players/444ab3af-68cc-4208-92a6-3a04599b2361"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/players/7998eb18-93ea-4338-980c-f4ddb733cbfd"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tournaments",
+			"item": [
+				{
+					"name": "Fetch Tournament",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/tournaments"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Tournament By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/tournaments/bd88ca47-48a6-4337-9668-d595dfb191b5"
+					},
+					"response": []
+				},
+				{
+					"name": "List Players Tournaments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/tournaments//players"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Tournament",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Torneio Brasil\",\n  \"finished\": 0,\n  \"players\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/tournaments"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Players From Excel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "J11_QQHzK/Dados Excel (1).xlsx"
+								}
+							]
+						},
+						"url": "http://localhost:8080/tournaments/3e82fda0-e950-40b4-b58f-789b884912dc/upload"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Players",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/tournaments/299a4fc3-3b5a-43e8-81ee-05c968cd8c5f/players/f5aeb04e-d919-4bc8-84bb-040ef0aa5fa1"
+					},
+					"response": []
+				},
+				{
+					"name": "Finish Tournament",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:8080/tournaments/355cc6bc-2eb4-43ed-b7b3-9e91b50886f6/finish"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Player",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/tournaments/bd88ca47-48a6-4337-9668-d595dfb191b5/players/355cc6bc-2eb4-43ed-b7b3-9e91b50886f6"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Challenges Result",
+			"item": [
+				{
+					"name": "Fibonacci",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/challenges/fibonacci?number=12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenges",
+								"fibonacci"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Palindrome",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/challenge/palindrome?word=radar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"palindrome"
+							],
+							"query": [
+								{
+									"key": "word",
+									"value": "radar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sort",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[10,7,5,6,8,1,3,2,4,9]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/challenge/sort"
+					},
+					"response": []
+				},
+				{
+					"name": "Score",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/challenge/score?playerId=aae4a7bd-9a22-4d6a-881f-dfcdc477e464&tournamentId=1f1938c0-f066-470d-9f7a-9439940ca25c&type=FIBONACCI",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"score"
+							],
+							"query": [
+								{
+									"key": "playerId",
+									"value": "aae4a7bd-9a22-4d6a-881f-dfcdc477e464"
+								},
+								{
+									"key": "tournamentId",
+									"value": "1f1938c0-f066-470d-9f7a-9439940ca25c"
+								},
+								{
+									"key": "type",
+									"value": "FIBONACCI"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rankings",
+			"item": [
+				{
+					"name": "Ranking Global",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/ranking/global"
+					},
+					"response": []
+				},
+				{
+					"name": "Ranking Tournament",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http;//localhost:8080/ranking/tournament/tournamentId"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
