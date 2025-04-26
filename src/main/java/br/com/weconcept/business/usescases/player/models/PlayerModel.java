@@ -11,8 +11,6 @@ public class PlayerModel {
 
     private int age;
 
-    private LocalDateTime birthdayDate;
-
     public PlayerModel() {
         super();
     }
