@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
 import java.util.UUID;
 
@@ -47,7 +46,7 @@ public class PlayerService {
         }
         log.info("Buscando Jogador(a) pelo PlayerId - {}", playerId);
         Player player = playerRepository.findById(UUID.fromString(playerId))
-            .orElseThrow(() -> new ResourceNotFoundException("Jogador(a) não encontrado(a) com o id: " + playerId));;
+            .orElseThrow(() -> new ResourceNotFoundException("Jogador(a) não encontrado(a) com o id: " + playerId));
         return PlayerModel.of(player);
     }
 
@@ -59,7 +58,7 @@ public class PlayerService {
         log.info("Buscando pelo nome do(a) Jogador(a) - {}", name);
         var player = playerRepository.findByName(name);
         if (player == null) {
-            throw new ValidationException("Não foi possível encontrar um jogador com esse nome: " + name);
+            throw new ResourceNotFoundException("Não foi possível encontrar um(a) jogador(a) com esse nome: " + name);
         }
         return PlayerModel.of(player);
     }

@@ -49,7 +49,7 @@ public class TournamentController {
 
     @PostMapping("{tournamentId}/upload")
     public ResponseEntity<String> extractPlayersFromExcel(@PathVariable String tournamentId, @RequestParam("file") MultipartFile file) {
-        if (file.isEmpty()) {
+        if (file == null || file.isEmpty()) {
             return ResponseEntity.badRequest().body("Por favor, envie um arquivo Excel.");
         }
         try {
