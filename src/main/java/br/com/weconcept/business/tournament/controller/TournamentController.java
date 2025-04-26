@@ -70,7 +70,7 @@ public class TournamentController {
     @PutMapping("{tournamentId}/players/{playerId}")
     public ResponseEntity<Tournament> addPlayer(@PathVariable String tournamentId, @PathVariable String playerId) {
         return ResponseEntity
-            .status(HttpStatus.OK)
+            .status(HttpStatus.CREATED)
             .body(this.tournamentService.addPlayer(tournamentId, playerId));
     }
 

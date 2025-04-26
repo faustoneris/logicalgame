@@ -54,12 +54,12 @@ class ChallengeServiceTest {
     }
 
     @Test
-    void executeFibonacci_WithValidInput_ShouldReturnCorrectResult() {
-        assertEquals(0, challengeService.executeFibonacci(0));
-        assertEquals(1, challengeService.executeFibonacci(1));
-        assertEquals(1, challengeService.executeFibonacci(2));
-        assertEquals(2, challengeService.executeFibonacci(3));
-        assertEquals(55, challengeService.executeFibonacci(10));
+    void calculateFibonacci_WithValidInput_ShouldReturnCorrectResult() {
+        assertEquals(0, challengeService.calculateFibonacci(0));
+        assertEquals(1, challengeService.calculateFibonacci(1));
+        assertEquals(1, challengeService.calculateFibonacci(2));
+        assertEquals(2, challengeService.calculateFibonacci(3));
+        assertEquals(55, challengeService.calculateFibonacci(10));
     }
 
     @Test
